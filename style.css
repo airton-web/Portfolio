@@ -21,7 +21,8 @@
       margin: 0;
       min-height: 100vh;
       background:
-        radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.10), transparent 25rem),
+        radial-gradient(circle at 8% 8%, rgba(56, 189, 248, 0.16), transparent 22rem),
+        radial-gradient(circle at 92% 24%, rgba(37, 99, 235, 0.10), transparent 20rem),
         var(--fundo);
       color: var(--texto);
       font-family: "Segoe UI", Arial, Helvetica, sans-serif;
@@ -32,10 +33,10 @@
       position: relative;
       overflow: hidden;
       isolation: isolate;
-      padding: 52px 20px 30px;
+      padding: 58px 20px 34px;
       background:
         radial-gradient(circle at 50% 0%, rgba(125, 211, 252, 0.3), transparent 22rem),
-        linear-gradient(120deg, #172554 0%, #1d4ed8 58%, #38bdf8 130%);
+        linear-gradient(120deg, #172554 0%, #1d4ed8 58%, #0ea5e9 130%);
       color: var(--claro);
       text-align: center;
       box-shadow: 0 14px 32px rgba(23, 37, 84, 0.2);
@@ -112,8 +113,8 @@
     }
 
     main {
-      width: min(900px, calc(100% - 32px));
-      margin: 42px auto;
+      width: min(980px, calc(100% - 32px));
+      margin: 48px auto;
     }
 
     section {
@@ -127,6 +128,7 @@
       box-shadow: var(--sombra);
       backdrop-filter: blur(10px);
       animation: surgir 0.65s ease-out both;
+      scroll-margin-top: 24px;
     }
 
     #projetos {
@@ -251,6 +253,9 @@
     .habilidades li:nth-child(6) { --accent: #8b5cf6; animation-delay: 0.27s; }
     .habilidades li:nth-child(7) { --accent: #14b8a6; animation-delay: 0.32s; }
     .habilidades li:nth-child(8) { --accent: #60a5fa; animation-delay: 0.37s; }
+    .habilidades li:nth-child(9) { --accent: #3776ab; animation-delay: 0.42s; }
+    .habilidades li:nth-child(10) { --accent: #7c3aed; animation-delay: 0.47s; }
+    .habilidades li:nth-child(11) { --accent: #f43f5e; animation-delay: 0.52s; }
 
     article {
       animation: surgir 0.55s ease-out both;
@@ -260,17 +265,22 @@
       animation-delay: 0.12s;
     }
 
-    .habilidades li img {
+    .habilidade-simbolo {
       position: relative;
       z-index: 1;
       width: 38px;
       height: 38px;
-      padding: 7px;
-      object-fit: contain;
+      display: grid;
+      place-items: center;
+      flex: 0 0 38px;
       background: rgba(255, 255, 255, 0.92);
       border: 1px solid rgba(148, 163, 184, 0.22);
       border-radius: 11px;
       box-shadow: 0 5px 12px rgba(15, 23, 42, 0.08);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
       transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease;
     }
 
@@ -291,9 +301,64 @@
       transform: translate(10px, 10px);
     }
 
-    .habilidades li:hover img {
+    .habilidades li:hover .habilidade-simbolo {
       transform: rotate(-5deg) scale(1.12);
       box-shadow: 0 8px 16px rgba(37, 99, 235, 0.14);
+    }
+
+    .habilidades-ferramentas {
+      max-width: 440px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .projetos-github {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .projeto-github {
+      height: 100%;
+      margin: 0 !important;
+    }
+
+    .projeto-cabecalho {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .projeto-cabecalho h3 {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .projeto-cabecalho span {
+      flex: 0 0 auto;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: var(--principal-escuro);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .projeto-github p {
+      margin: 8px 0 14px;
+      color: var(--muted);
+    }
+
+    .projeto-github a {
+      color: var(--principal-escuro);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .projeto-github a:hover,
+    .projeto-github a:focus-visible {
+      text-decoration: underline;
     }
 
     article {
@@ -327,26 +392,106 @@
     }
 
     footer {
-      padding: 26px 20px;
-      background: #0f172a;
-      color: #cbd5e1;
-      text-align: center;
+      padding: 48px 20px;
+      background:
+        radial-gradient(circle at 15% 100%, rgba(56, 189, 248, 0.16), transparent 24rem),
+        #0f172a;
+      color: #e2e8f0;
       animation: surgir 0.65s 0.3s ease-out both;
     }
 
-    footer p {
-      margin: 4px;
+    .contato-conteudo {
+      width: min(980px, 100%);
+      margin: 0 auto;
     }
 
-    footer a {
-      color: #93c5fd;
-      font-weight: 700;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
+    .contato-etiqueta {
+      margin: 0 0 2px;
+      color: #7dd3fc;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
-    footer a:hover {
+    footer h2 {
       color: var(--claro);
+    }
+
+    footer h2::after {
+      background: linear-gradient(90deg, #38bdf8, #2563eb);
+    }
+
+    .contatos {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .contato-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--claro);
+      text-decoration: none;
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    }
+
+    .contato-card:hover,
+    .contato-card:focus-visible {
+      transform: translateY(-4px);
+      border-color: rgba(125, 211, 252, 0.55);
+      background: rgba(255, 255, 255, 0.11);
+      outline: none;
+    }
+
+    .contato-simbolo {
+      display: grid;
+      width: 46px;
+      height: 46px;
+      flex: 0 0 46px;
+      place-items: center;
+      border-radius: 12px;
+      background: #1e293b;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .contato-card small,
+    .contato-card strong {
+      display: block;
+    }
+
+    .contato-card small {
+      margin-bottom: 1px;
+      color: #94a3b8;
+    }
+
+    .contato-card strong {
+      overflow-wrap: anywhere;
+      font-size: 0.92rem;
+    }
+
+    .whatsapp .contato-simbolo {
+      background: #16a34a;
+    }
+
+    .instagram .contato-simbolo {
+      background: linear-gradient(135deg, #f59e0b, #ec4899, #7c3aed);
+    }
+
+    .github .contato-simbolo {
+      background: #334155;
+    }
+
+    .email .contato-simbolo {
+      background: #2563eb;
     }
 
     @keyframes surgir {
@@ -398,6 +543,14 @@
     @media (max-width: 760px) {
       .habilidades {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .projetos-github {
+        grid-template-columns: 1fr;
+      }
+
+      .contatos {
+        grid-template-columns: 1fr;
       }
     }
 
